@@ -1,0 +1,21 @@
+---
+- studentDeatails:
+  - name:  tarun
+    phno: 898989889
+    email: tarun@gmail.com
+    address:
+      dno: 1
+      sno: 1
+      pin: 72
+      
+  - name: swathy 
+    phno: 787878787
+    email: swathy@gmail.com
+    address:
+      dno: 2
+      sno: 3
+      pin: 72
+
+  
+ 
+   
