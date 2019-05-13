@@ -1,0 +1,14 @@
+---
+- hosts: mywebserver
+  become: yes
+  vars:
+    var1: devops
+    var2: aws
+    aa3:  python
+  tasks:
+  - name:  disply var1 
+    debug:
+       msg: "{{var1}}"
+  - name: disply var2
+    debug:
+      msg: "{{var2}}"
