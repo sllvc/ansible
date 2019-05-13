@@ -1,0 +1,11 @@
+---
+- hosts: mywebserver
+  become: yes
+  tasks:
+  - name: i want to display hostname
+    command: hostname -f
+    register: myresult
+  - name: display myresult value
+    debug:
+       msg: "{{myresult}}"
+
