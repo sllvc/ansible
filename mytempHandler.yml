@@ -1,0 +1,13 @@
+---
+- hosts: mywebserver
+  become: yes
+  tasks:
+  - include_tasks: myfile.yml
+  - name: install webserver
+    apt: 
+      name: apache2
+  - name: copy index file into webserver
+    template:
+      src: index.j2
+      dest: /var/www/html/index.html
+
