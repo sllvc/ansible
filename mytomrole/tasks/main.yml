@@ -1,2 +1,34 @@
 ---
 # tasks file for mytomrole
+
+- name: install tomcat
+  yum:
+    name: tomcat
+    state: present
+- name:  copy tom config file into ansible nodes
+  template:
+    src: templates/tomconfig.j2
+    dest: /usr/share/tomcat/conf/tomcat.conf
+
+- name: Install Admin Packages
+  yum: 
+    name:  "{{item}}"
+    state: present
+  with_items:
+    - tomcat-webapps 
+    - tomcat-admin-webapps
+- name: copy tom user file into ansible nodes
+  template:
+    src: templates/tomuser.j2
+    dest: /usr/share/tomcat/conf/tomcat-users.xml
+  notify: starttomcat7
+
+- name: Download jenkisn war file and force basic auth
+  get_url:
+    url: http://mirrors.jenkins.io/war-stable/latest/jenkins.war
+    dest: /usr/share/tomcat/webapps/
+    force_basic_auth: yes
+
+   
+
+   
